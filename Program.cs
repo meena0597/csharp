@@ -10,7 +10,6 @@ namespace csharp
             Console.WriteLine("OMGHAI!");
 
             IList<Item> Items = new List<Item>{
-                //Call the factory to create the derived classes:
                 ItemFactory.CreateItem("+5 Dexterity Vest", 10, 20),
                 ItemFactory.CreateItem("Aged Brie",2,0),
                 ItemFactory.CreateItem("Elixir of the Mongoose",5,7),
@@ -34,7 +33,7 @@ namespace csharp
                     System.Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
                 }
                 Console.WriteLine("");
-                app.UpdateQuality();
+                app.UpdateProperties();
             }
         }
     }

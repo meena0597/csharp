@@ -10,7 +10,7 @@ namespace csharp
         {
             IList<Item> Items = new List<Item> { ItemFactory.CreateItem("Aged Brie", 10, 10) };
             GildedRose app = new GildedRose(Items);
-            app.UpdateQuality();
+            app.UpdateProperties();
             Assert.AreEqual(9, Items[0].SellIn);
             Assert.AreEqual(11, Items[0].Quality);
         }

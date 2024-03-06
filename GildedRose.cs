@@ -10,7 +10,7 @@ namespace csharp
             this.Items = Items;
         }
 
-        public void UpdateQuality()
+        public void UpdateProperties()
         {
             foreach (var item in Items)
             {
