@@ -1,4 +1,4 @@
-﻿using csharp.Models;
+﻿using csharp.Samples;
 using NUnit.Framework.Internal;
 using System;
 using System.Collections.Generic;

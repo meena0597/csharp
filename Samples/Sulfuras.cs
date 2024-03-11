@@ -1,4 +1,4 @@
-﻿namespace csharp.Models
+﻿namespace csharp.Samples
 {
     public class Sulfuras : IItem
     {

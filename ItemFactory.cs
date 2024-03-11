@@ -1,4 +1,4 @@
-﻿using csharp.Models;
+﻿using csharp.Samples;
 
 namespace csharp
 {
@@ -6,7 +6,6 @@ namespace csharp
     {
         public static IItem CreateItem(Item item)
         {
-            //Item item=new Item { Name=name,SellIn=sellIn,Quality=Quality};
             switch (item.Name)
             {
                 case "Aged Brie":
