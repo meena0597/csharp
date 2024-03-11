@@ -1,18 +1,21 @@
 ﻿namespace csharp.Models
 {
-    public class Sulfuras : Item
+    public class Sulfuras : IItem
     {
-        public Sulfuras(string name, int sellIn, int quality) : base(name, sellIn, quality)
+        public Item item { get; set; }
+        public Sulfuras(Item _item)
         {
+            item = _item;
         }
-
-        public override void UpdateSellIn()
+        public Item UpdateSellIn()
         {
             // The SellIn property of Sulfuras will never change.
+            return item;
         }
-        public override void UpdateQuality()
+        public Item UpdateQuality()
         {
             // The Quality property of Sulfuras will never change.
+            return item;
         }
 
     }

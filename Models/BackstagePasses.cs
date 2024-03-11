@@ -1,30 +1,37 @@
 ﻿namespace csharp.Models
 {
-    public class BackstagePasses : Item
+    public class BackstagePasses : IItem
     {
-        public BackstagePasses(string name, int sellIn, int quality) : base(name, sellIn, quality)
+        public Item item { get; set; }
+        public BackstagePasses(Item _item)
         {
+            item = _item;
         }
-
-        public override void UpdateQuality()
+        public Item UpdateQuality()
         {
-            if (SellIn < 0)
+            item = Helper.ValidateSellIn(item);
+            if (item.SellIn==10)
             {
-                Quality = 0;
+                item.SellIn = 10;
             }
-            else if (SellIn < 5)
+            if (item.SellIn < 0)
             {
-                Quality = Quality + 3;
+                item.Quality = 0;
             }
-            else if (SellIn < 10)
+            else if (item.SellIn <= 5)
             {
-                Quality = Quality + 2;
+                item.Quality = item.Quality + 3;
+            }
+            else if (item.SellIn <= 10)
+            {
+                item.Quality = item.Quality + 2;
             }
             else
             {
-                Quality = Quality + 1;
+                item.Quality = item.Quality + 1;
             }
-            base.UpdateQuality();
+            item = Helper.ValidateQuality(item);
+            return item;
         }
     }
 }

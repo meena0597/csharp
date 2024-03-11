@@ -1,20 +1,25 @@
 ﻿namespace csharp.Models
 {
-    public class StandardItem : Item
+    public class StandardItem : IItem
     {
-        public StandardItem(string name, int sellIn, int quality)
-            : base(name, sellIn, quality) { }
-        public override void UpdateQuality()
+        public Item item { get; set; }
+        public StandardItem(Item _item)
         {
-            if (SellIn < 0)
+            item = _item;
+        }
+        public Item UpdateQuality()
+        {
+            item = Helper.ValidateSellIn(item);
+            if (item.SellIn >= 0)
             {
-                Quality = Quality - 2;
+                item.Quality = item.Quality - 1;
             }
             else
             {
-                Quality = Quality - 1;
+                item.Quality = item.Quality - 2;
             }
-            base.UpdateQuality();
+            item = Helper.ValidateQuality(item);
+            return item;
         }
     }
 }

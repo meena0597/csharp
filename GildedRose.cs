@@ -1,22 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using csharp.Models;
+using System.Collections.Generic;
 
 namespace csharp
 {
     public class GildedRose
     {
-        IList<Item> Items;
-        public GildedRose(IList<Item> Items)
+        IList<IItem> Items;
+        public GildedRose(IList<IItem> Items)
         {
             this.Items = Items;
         }
 
-        public void UpdateProperties()
+        public IList<Item> UpdateProperties()
         {
+            IList<Item> datas=new List<Item>();
             foreach (var item in Items)
             {
-                item.UpdateSellIn();
-                item.UpdateQuality();
+                var data=item.UpdateQuality();
+                datas.Add(data);
             }
+            return datas;
         }
     }
     

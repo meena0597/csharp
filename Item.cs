@@ -1,33 +1,14 @@
 ﻿namespace csharp
 {
-    public abstract class Item
+    public class Item
     {
         public string Name { get; set; }
         public int SellIn { get; set; }
         public int Quality { get; set; }
 
-        protected Item(string name, int sellIn, int quality)
+        public override string ToString()
         {
-            Name = name;
-            SellIn = sellIn;
-            Quality = quality;
-        }
-
-        public virtual void UpdateSellIn()
-        {
-            SellIn = SellIn - 1;
-        }
-
-        public virtual void UpdateQuality()
-        {
-            if (Quality < 0)
-            {
-                Quality = 0;
-            }
-            else if (Quality > 50)
-            {
-                Quality = 50;
-            }
+            return this.Name + ", " + this.SellIn + ", " + this.Quality;
         }
     }
 }

@@ -1,24 +1,19 @@
 ﻿namespace csharp.Models
 {
-    public class AgedBrie : Item
+    public class AgedBrie : IItem
     {
-        public AgedBrie(string name, int sellIn, int quality)
-            : base(name, sellIn, quality)
+        public Item item { get; set; }
+        public AgedBrie(Item _item)
         {
+            item = _item;
         }
 
-        public override void UpdateQuality()
+        public Item UpdateQuality()
         {
-            if (SellIn < 0)
-            {
-                Quality = Quality + 2;
-            }
-            else
-            {
-                Quality = Quality + 1;
-            }
-            
-            base.UpdateQuality();
+            item.Quality = item.Quality + 1;
+            item = Helper.ValidateQuality(item);
+            item = Helper.ValidateSellIn(item);
+            return item;
         }
     }
 }

@@ -1,22 +1,23 @@
 ﻿namespace csharp.Models
 {
-    public class Conjured : Item
+    public class Conjured : IItem
     {
-        public Conjured(string name, int sellIn, int quality) : base(name, sellIn, quality)
+        public Item item { get; set; }
+        public Conjured(Item _item)
         {
+            item = _item;
         }
-
-        public override void UpdateQuality()
+        public Item UpdateQuality()
         {
-            if (SellIn < 0)
+            item = Helper.ValidateSellIn(item);
+            item.Quality -= 2;
+            if (item.SellIn < 0)
             {
-                Quality = Quality - 2;
+                item.Quality -= 2;
             }
-            else
-            {
-                Quality = Quality - 1;
-            }
-            base.UpdateQuality();
+            item = Helper.ValidateQuality(item);
+            
+            return item;
         }
     }
 }
