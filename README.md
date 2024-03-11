@@ -22,7 +22,7 @@ Welcome to the Gilded Rose project! This project manages the inventory of a smal
 
 To build the project, follow these steps:
 
-1. Clone the repository (https://github.com/meena0597/csharp) to your local machine.
+1. Clone the repository (https://github.com/meena0597/csharp.git) to your local machine.
 2. Open the solution file (`csharp.sln`) in Visual Studio.
 3. Build the solution by selecting `Build > Build Solution` from the menu, or by pressing `Ctrl+Shift+B`.
 
