@@ -10,10 +10,6 @@
         public Item UpdateQuality()
         {
             item = Helper.ValidateSellIn(item);
-            if (item.SellIn==10)
-            {
-                item.SellIn = 10;
-            }
             if (item.SellIn < 0)
             {
                 item.Quality = 0;
